@@ -11,7 +11,7 @@ Supports retrieving PIDs.
 
 # DESCRIPTION
 
-Configure the \[Resolver\](https://github.com/PACKED-vzw/resolver) as a \[store\](http://librecat.org/Catmandu/#stores) for \[Catmandu\](http://librecat.org/).
+Configure the [Resolver](https://github.com/PACKED-vzw/resolver) as a [store](http://librecat.org/Catmandu/#stores) for [Catmandu](http://librecat.org/).
 
 Museum objects and records require a PID to be uniquely identifiable. The Resolver tool generates and resolves these PIDs. By using this store, PIDs can be queried (based on the object number of the record as stored in the resolver), created, updated and deleted from Catmandu. 
 
@@ -21,13 +21,13 @@ Data is returned as JSON.
 
 The Resolver API requires a username and password. These must be provided.
 
-- `url`: base url of the Resolver (e.g. \_http://www.resolver.be\_).
+- `url`: base url of the Resolver (e.g. _http://www.resolver.be_).
 - `username`: username for the Resolver.
 - `password`: password for the Resolver.
 
 # USAGE
 
-See \[the Catmandu documentation\](http://librecat.org/Catmandu/#stores) for more information on how to use Stores.
+See [the Catmandu documentation](http://librecat.org/Catmandu/#stores) for more information on how to use Stores.
 
 # SEE ALSO
 
