@@ -1,4 +1,5 @@
 # NAME
+[![Build Status](https://travis-ci.org/PACKED-vzw/Catmandu-Store-Resolver.svg?branch=master)](https://travis-ci.org/PACKED-vzw/Catmandu-Store-Resolver)
 
 Catmandu::Store::Resolver - Store/retrieve items from the Resolver
 
