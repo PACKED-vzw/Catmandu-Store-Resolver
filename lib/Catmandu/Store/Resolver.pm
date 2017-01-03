@@ -1,5 +1,7 @@
 package Catmandu::Store::Resolver;
 
+our $VERSION = '0.01';
+
 use Catmandu::Sane;
 
 use Moo;
