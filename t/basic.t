@@ -1,8 +1,12 @@
 use strict;
 use Test::More;
-use Catmandu::Store::Resolver;
 
-# replace with the actual test
-ok 1;
+my @pkgs = qw (
+    Catmandu::Store::Resolver
+    Catmandu::Store::Resolver::API
+    Catmandu::Store::Resolver::Bag
+);
 
-done_testing;
+require_ok $_ for @pkgs;
+
+done_testing 3;

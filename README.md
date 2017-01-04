@@ -40,11 +40,11 @@ See [the Catmandu documentation](http://librecat.org/Catmandu/#stores) for more 
 
 # AUTHORS
 
-- Pieter De Praetere, `pieter at packed.be`
+Pieter De Praetere, `pieter at packed.be`
 
 # CONTRIBUTORS
 
-- Pieter De Praetere, `pieter at packed.be`
+Pieter De Praetere, `pieter at packed.be`
 
 # COPYRIGHT AND LICENSE
 

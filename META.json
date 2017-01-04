@@ -1,7 +1,7 @@
 {
    "abstract" : "Store/retrieve items from the Resolver",
    "author" : [
-      "=over"
+      "Pieter De Praetere, C<< pieter at packed.be >>"
    ],
    "dynamic_config" : 0,
    "generated_by" : "Dist::Milla version v1.0.17, Dist::Zilla version 6.008, CPAN::Meta::Converter version 2.150010",

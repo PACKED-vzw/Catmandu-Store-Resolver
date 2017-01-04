@@ -72,19 +72,11 @@ L<Catmandu>
 
 =head1 AUTHORS
 
-=over
-
-=item Pieter De Praetere, C<< pieter at packed.be >>
-
-=back
+Pieter De Praetere, C<< pieter at packed.be >>
 
 =head1 CONTRIBUTORS
 
-=over
-
-=item Pieter De Praetere, C<< pieter at packed.be >>
-
-=back
+Pieter De Praetere, C<< pieter at packed.be >>
 
 =head1 COPYRIGHT AND LICENSE
 
