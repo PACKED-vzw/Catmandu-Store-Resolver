@@ -1,5 +1,9 @@
 # NAME
 
+<div>
+    <a href="https://travis-ci.org/PACKED-vzw/Catmandu-Store-Resolver"><img src="https://travis-ci.org/PACKED-vzw/Catmandu-Store-Resolver.svg?branch=master"></a>
+</div>
+
 Catmandu::Store::Resolver - Store/retrieve items from the Resolver
 
 # SYNOPSIS

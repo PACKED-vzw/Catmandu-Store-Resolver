@@ -28,6 +28,8 @@ sub _build_client {
 
 =head1 NAME
 
+=for html <a href="https://travis-ci.org/PACKED-vzw/Catmandu-Store-Resolver"><img src="https://travis-ci.org/PACKED-vzw/Catmandu-Store-Resolver.svg?branch=master"></a>
+
 Catmandu::Store::Resolver - Store/retrieve items from the Resolver
 
 =head1 SYNOPSIS
