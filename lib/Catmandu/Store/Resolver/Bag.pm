@@ -8,17 +8,16 @@ use Catmandu::Store::Resolver::API;
 
 with 'Catmandu::Bag';
 
-has cookie_jar => (is => 'lazy');
+has api => (is => 'lazy');
 
-sub _build_cookie_jar {
+sub _build_api {
     my $self = shift;
     my $api = Catmandu::Store::Resolver::API->new(
         url => $self->store->url,
         username => $self->store->username,
         password => $self->store->password
     );
-    my $cookie_jar = $api->login();
-    return $cookie_jar;
+    return $api;
 }
 
 sub generator {
@@ -27,37 +26,22 @@ sub generator {
 
 sub get {
     my ($self, $id) = @_;
-    my $url = sprintf('%s/resolver/api/entity/%s', $self->store->url, $id);
-
-    $self->store->client->cookie_jar($self->cookie_jar);
-    my $response = $self->store->client->get($url);
-    if ($response->is_success) {
-        return decode_json($response->decoded_content);
-    } else {
-        Catmandu::HTTPError->throw({
-            code             => $response->code,
-            message          => $response->status_line,
-            url              => $response->request->uri,
-            method           => $response->request->method,
-            request_headers  => [],
-            request_body     => $response->request->decoded_content,
-            response_headers => [],
-            response_body    => $response->decoded_content
-        });
-        return undef;
-    }
+    return $self->api->get($id);
 }
 
 sub add {
-    my $self = shift;
+    my ($self, $data) = @_;
+    return $self->api->post($data);
 }
 
 sub update {
-    my $self = shift;
+    my ($self, $id, $data) = @_;
+    return $self->api->put($id, $data);
 }
 
 sub delete {
-    my $self = shift;
+    my ($self, $id) = @_;
+    return $self->api->delete($id);
 }
 
 sub delete_all {
