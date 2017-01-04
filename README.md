@@ -1,13 +1,10 @@
 # NAME
-[![Build Status](https://travis-ci.org/PACKED-vzw/Catmandu-Store-Resolver.svg?branch=master)](https://travis-ci.org/PACKED-vzw/Catmandu-Store-Resolver)
 
 Catmandu::Store::Resolver - Store/retrieve items from the Resolver
 
 # SYNOPSIS
 
-A module that can be used to retrieve or store PIDS for records in the \[Resolver\](https://github.com/PACKED-vzw/resolver).
-
-Supports retrieving PIDs.
+A module that can be used to retrieve or store PIDS for records in the [Resolver](https://github.com/PACKED-vzw/resolver).
 
 # DESCRIPTION
 
@@ -21,9 +18,17 @@ Data is returned as JSON.
 
 The Resolver API requires a username and password. These must be provided.
 
-- `url`: base url of the Resolver (e.g. _http://www.resolver.be_).
-- `username`: username for the Resolver.
-- `password`: password for the Resolver.
+- `url`
+
+    base url of the Resolver (e.g. \_http://www.resolver.be\_).
+
+- `username`
+
+    username for the Resolver.
+
+- `password`
+
+    password for the Resolver.
 
 # USAGE
 

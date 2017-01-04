@@ -2,5 +2,9 @@ Revision history for Catmandu-Store-Resolver
 
 {{$NEXT}}
 
+0.02  2017-01-04 13:11:46 UTC
+
+	- Added support for PUT/POST/DELETE
+
 0.01  2017-01-03 11:15:45 UTC
         - Initial release
