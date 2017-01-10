@@ -10,13 +10,19 @@ has url      => (is => 'ro', required => 1);
 has username => (is => 'ro', required => 1);
 has password => (is => 'ro', required => 1);
 
-has ua => (is => 'lazy');
+has ua         => (is => 'lazy');
+has cookie_jar => (is => 'lazy');
 
 sub _build_ua {
     my $self = shift;
     my $ua = LWP::UserAgent->new();
     $ua->cookie_jar({});
     return $ua;
+}
+
+sub _build_cookie_jar {
+    my $self = shift;
+    return $self->login();
 }
 
 sub login {
@@ -45,12 +51,36 @@ sub login {
     }
 }
 
+sub logout {
+    my $self = shift;
+    my $url = '%s/resolver/api/logout';
+    my $req_url = sprintf($url, $self->url);
+    $self->ua->cookie_jar($self->cookie_jar);
+
+    my $response = $self->ua->get($req_url);
+    if ($response->is_success) {
+        return 1;
+    } else {
+        Catmandu::HTTPError->throw({
+            code             => $response->code,
+            message          => $response->status_line,
+            url              => $response->request->uri,
+            method           => $response->request->method,
+            request_headers  => [],
+            request_body     => $response->request->decoded_content,
+            response_headers => [],
+            response_body    => $response->decoded_content
+        });
+        return undef;
+    }
+}
+
 sub get {
     my ($self, $id) = @_;
     my $url = '%s/resolver/api/entity/original/%s';
     my $req_url = sprintf($url, $self->url, $id);
 
-    $self->ua->cookie_jar($self->login());
+    $self->ua->cookie_jar($self->cookie_jar);
 
     my $response = $self->ua->get($req_url);
 
