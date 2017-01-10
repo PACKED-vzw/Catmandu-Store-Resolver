@@ -36,6 +36,14 @@ Catmandu::Store::Resolver - Store/retrieve items from the Resolver
 
 A module that can be used to retrieve or store PIDS for records in the L<Resolver|https://github.com/PACKED-vzw/resolver>.
 
+    lookup_in_store(
+        objectNumber,
+        Resolver,
+        username: username,
+        password: password,
+        url: http://www.resolver.be
+    )
+
 =head1 DESCRIPTION
 
 Configure the L<Resolver|https://github.com/PACKED-vzw/resolver> as a L<store|http://librecat.org/Catmandu/#stores> for L<Catmandu|http://librecat.org/>.
@@ -43,6 +51,19 @@ Configure the L<Resolver|https://github.com/PACKED-vzw/resolver> as a L<store|ht
 Museum objects and records require a PID to be uniquely identifiable. The Resolver tool generates and resolves these PIDs. By using this store, PIDs can be queried (based on the object number of the record as stored in the resolver), created, updated and deleted from Catmandu. 
 
 Data is returned as JSON.
+
+    {
+        "data": {
+            "documents": [],
+            "domain": "",
+            "id": "",
+            "persystentURIs": [
+                dataPid
+            ],
+            "title": "",
+            "type": ""
+        }
+    }
 
 =head1 CONFIGURATION
 
