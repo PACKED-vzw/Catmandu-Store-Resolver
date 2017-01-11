@@ -2,6 +2,9 @@ Revision history for Catmandu-Store-Resolver
 
 {{$NEXT}}
 
+0.04  2017-01-11 09:50:43 UTC
+	- Bugfix: don't die on 404
+
 0.03  2017-01-10 12:33:51 UTC
         - Bugfix: 403 error on multiple submits
         - Updated documentation
