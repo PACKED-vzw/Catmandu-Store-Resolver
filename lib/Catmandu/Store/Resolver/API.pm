@@ -88,6 +88,19 @@ sub get {
         # New API
         return decode_json($response->decoded_content);
     } else {
+        # If it is 404, it could be that the "new" api works,
+        # but that the entity doesn't exist. So we check for
+        # the presence of the error "Entity not found"
+        # Also, the new API returns the application/json content-type
+        # while the old doesn't.
+        if ($response->code == 404) {
+            if ($response->content_type eq 'application/json') {
+                return {
+                    'data' => {}
+                };
+            }
+        }
+
         # Try with the old API
         # Please note: this doesn't work with the original object number
         # so it could say 'does not exist' because the original object number
@@ -97,6 +110,10 @@ sub get {
         $response = $self->ua->get($req_url);
         if ($response->is_success) {
             return decode_json($response->decoded_content);
+        } elsif ($response->code == 404) {
+            return {
+                'data' => {}
+            };
         } else {
             # Give up
             Catmandu::HTTPError->throw({

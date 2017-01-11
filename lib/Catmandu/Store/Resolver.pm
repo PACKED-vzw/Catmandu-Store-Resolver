@@ -26,6 +26,8 @@ sub _build_client {
 
 1;
 
+__END__
+
 =head1 NAME
 
 =for html <a href="https://travis-ci.org/PACKED-vzw/Catmandu-Store-Resolver"><img src="https://travis-ci.org/PACKED-vzw/Catmandu-Store-Resolver.svg?branch=master"></a>
