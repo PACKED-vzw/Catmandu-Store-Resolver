@@ -22,7 +22,10 @@ A module that can be used to retrieve or store PIDS for records in the [Resolver
 
 Configure the [Resolver](https://github.com/PACKED-vzw/resolver) as a [store](http://librecat.org/Catmandu/#stores) for [Catmandu](http://librecat.org/).
 
-Museum objects and records require a PID to be uniquely identifiable. The Resolver tool generates and resolves these PIDs. By using this store, PIDs can be queried (based on the object number of the record as stored in the resolver), created, updated and deleted from Catmandu. 
+Museum objects and records require a PID to be uniquely identifiable. The Resolver tool
+generates and resolves these PIDs. By using this store, PIDs can be queried (based on
+the object number of the record as stored in the resolver), created, updated and deleted
+from Catmandu.
 
 Data is returned as JSON.
 
@@ -31,7 +34,7 @@ Data is returned as JSON.
             "documents": [],
             "domain": "",
             "id": "",
-            "persystentURIs": [
+            "persistentURIs": [
                 dataPid
             ],
             "title": "",
@@ -39,13 +42,16 @@ Data is returned as JSON.
         }
     }
 
+The `_id` attribute of the data after a [add\_to\_store](https://metacpan.org/pod/Catmandu::Fix::add_to_store)
+is set to the _workPid_, which is the first item of the _presistenURIs_ array.
+
 # CONFIGURATION
 
 The Resolver API requires a username and password. These must be provided.
 
 - `url`
 
-    base url of the Resolver (e.g. \_http://www.resolver.be\_).
+    base url of the Resolver (e.g. _http://www.resolver.be_).
 
 - `username`
 

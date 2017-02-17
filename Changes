@@ -1,6 +1,8 @@
 Revision history for Catmandu-Store-Resolver
 
 {{$NEXT}}
+
+0.05  2017-02-17 14:46:52 UTC
         - Added PID as _id in the return value of the store
 
 0.04  2017-01-11 09:50:43 UTC
