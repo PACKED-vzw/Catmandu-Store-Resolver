@@ -10,6 +10,8 @@ with 'Catmandu::Bag';
 
 has api => (is => 'lazy');
 
+has pid => (is => 'rw');
+
 sub _build_api {
     my $self = shift;
     my $api = Catmandu::Store::Resolver::API->new(
@@ -19,6 +21,20 @@ sub _build_api {
     );
     return $api;
 }
+
+around add => sub {
+    my ($orig, $self, $data) = @_;
+    $self->$orig($data);
+    $data->{'_id'} = $self->pid;
+    return $data;
+};
+
+around update => sub {
+    my ($orig, $self, $data) = @_;
+    $self->$orig($data);
+    $data->{'_id'} = $self->pid;
+    return $data;
+};
 
 sub generator {
     my $self = shift;
@@ -31,12 +47,22 @@ sub get {
 
 sub add {
     my ($self, $data) = @_;
-    return $self->api->post($data);
+    my $response = $self->api->post($data);
+    if (defined($response->{'data'}->{'work_pid'})) {
+        $self->pid($response->{'data'}->{'work_pid'});
+    } else {
+        $self->pid($response->{'data'}->{'persistentURIs'}->[0]);
+    }
 }
 
 sub update {
     my ($self, $id, $data) = @_;
-    return $self->api->put($id, $data);
+    my $response = $self->api->put($id, $data);
+    if (defined($response->{'data'}->{'work_pid'})) {
+        $self->pid($response->{'data'}->{'work_pid'});
+    } else {
+        $self->pid($response->{'data'}->{'persistentURIs'}->[0]);
+    }
 }
 
 sub delete {
