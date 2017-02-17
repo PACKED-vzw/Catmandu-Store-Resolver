@@ -50,7 +50,12 @@ A module that can be used to retrieve or store PIDS for records in the L<Resolve
 
 Configure the L<Resolver|https://github.com/PACKED-vzw/resolver> as a L<store|http://librecat.org/Catmandu/#stores> for L<Catmandu|http://librecat.org/>.
 
-Museum objects and records require a PID to be uniquely identifiable. The Resolver tool generates and resolves these PIDs. By using this store, PIDs can be queried (based on the object number of the record as stored in the resolver), created, updated and deleted from Catmandu. 
+Museum objects and records require a PID to be uniquely identifiable. The Resolver tool
+generates and resolves these PIDs. By using this store, PIDs can be queried (based on
+the object number of the record as stored in the resolver), created, updated and deleted
+from Catmandu.
+
+
 
 Data is returned as JSON.
 
@@ -59,13 +64,16 @@ Data is returned as JSON.
             "documents": [],
             "domain": "",
             "id": "",
-            "persystentURIs": [
+            "persistentURIs": [
                 dataPid
             ],
             "title": "",
             "type": ""
         }
     }
+
+The C<_id> attribute of the data after a L<add_to_store|Catmandu::Fix::add_to_store>
+is set to the I<workPid>, which is the first item of the I<presistenURIs> array.
 
 =head1 CONFIGURATION
 

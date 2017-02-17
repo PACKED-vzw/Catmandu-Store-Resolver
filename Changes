@@ -1,6 +1,7 @@
 Revision history for Catmandu-Store-Resolver
 
 {{$NEXT}}
+        - Added PID as _id in the return value of the store
 
 0.04  2017-01-11 09:50:43 UTC
 	- Bugfix: don't die on 404
