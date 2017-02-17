@@ -83,7 +83,7 @@ The Resolver API requires a username and password. These must be provided.
 
 =item C<url>
 
-base url of the Resolver (e.g. _http://www.resolver.be_).
+base url of the Resolver (e.g. I<http://www.resolver.be>).
 
 =item C<username>
 
