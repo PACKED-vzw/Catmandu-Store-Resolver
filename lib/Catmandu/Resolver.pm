@@ -1,5 +1,7 @@
 package Catmandu::Resolver;
 
+our $VERSION = '0.05';
+
 use strict;
 use warnings;
 
