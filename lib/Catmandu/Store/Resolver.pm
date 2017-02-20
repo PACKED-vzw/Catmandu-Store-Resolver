@@ -36,8 +36,31 @@ Catmandu::Store::Resolver - Store/retrieve items from the Resolver
 
 =head1 SYNOPSIS
 
-A module that can be used to retrieve or store PIDS for records in the L<Resolver|https://github.com/PACKED-vzw/resolver>.
+    # From the command line
+    $ catmandu export Resolver --id 1234 --url http://www.resolver.be --username demo --password demo to YAML
+    ---
+    data:
+        data_pids:
+            - https://resolver.be/collection/work/data/9031
+        documents:
+            - 88682
+            - 88683
+        domain: https://resolver.be
+        id: '9031'
+        persistentURIs:
+            - https://resolver.be/collection/9031
+            - https://resolver.be/collection/9031/untitled
+            - https://resolver.be/collection/work/data/9031/html
+            - https://resolver.be/collection/work/data/9031/html/untitled
+            - https://resolver.be/collection/work/data/9031
+            - https://resolver.be/collection/work/representation/9031/1
+            - https://resolver.be/collection/work/representation/9031/1/untitled
+            - https://resolver.be/collection/work/representation/9031
+        type: work
+        work_pid: https://resolver.be/collection/9031
+    ...
 
+    # From a Catmandu Fix
     lookup_in_store(
         objectNumber,
         Resolver,
@@ -48,6 +71,15 @@ A module that can be used to retrieve or store PIDS for records in the L<Resolve
 
 =head1 DESCRIPTION
 
+    # From a Catmandu Fix
+    lookup_in_store(
+        objectNumber,
+        Resolver,
+        username: username,
+        password: password,
+        url: http://www.resolver.be
+    )
+
 Configure the L<Resolver|https://github.com/PACKED-vzw/resolver> as a L<store|http://librecat.org/Catmandu/#stores> for L<Catmandu|http://librecat.org/>.
 
 Museum objects and records require a PID to be uniquely identifiable. The Resolver tool
@@ -55,27 +87,32 @@ generates and resolves these PIDs. By using this store, PIDs can be queried (bas
 the object number of the record as stored in the resolver), created, updated and deleted
 from Catmandu.
 
-
-
-Data is returned as JSON.
-
-    {
-        "data": {
-            "documents": [],
-            "domain": "",
-            "id": "",
-            "persistentURIs": [
-                dataPid
-            ],
-            "title": "",
-            "type": ""
-        }
-    }
-
 The C<_id> attribute of the data after a L<add_to_store|Catmandu::Fix::add_to_store>
 is set to the I<workPid>, which is the first item of the I<presistenURIs> array.
 
-=head1 CONFIGURATION
+The I<Store> returns the following data:
+
+    data:
+        data_pids:
+            - https://resolver.be/collection/work/data/9031
+        documents:
+            - 88682
+            - 88683
+        domain: https://resolver.be
+        id: '9031'
+        persistentURIs:
+            - https://resolver.be/collection/9031
+            - https://resolver.be/collection/9031/untitled
+            - https://resolver.be/collection/work/data/9031/html
+            - https://resolver.be/collection/work/data/9031/html/untitled
+            - https://resolver.be/collection/work/data/9031
+            - https://resolver.be/collection/work/representation/9031/1
+            - https://resolver.be/collection/work/representation/9031/1/untitled
+            - https://resolver.be/collection/work/representation/9031
+        type: work
+        work_pid: https://resolver.be/collection/9031
+
+=head1 PARAMETERS
 
 The Resolver API requires a username and password. These must be provided.
 
@@ -95,13 +132,9 @@ password for the Resolver.
 
 =back
 
-=head1 USAGE
-
-See L<the Catmandu documentation|http://librecat.org/Catmandu/#stores> for more information on how to use Stores.
-
 =head1 SEE ALSO
 
-L<Catmandu>
+L<Catmandu::Resolver>
 
 =head1 AUTHORS
 

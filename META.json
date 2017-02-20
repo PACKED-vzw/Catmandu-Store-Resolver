@@ -12,7 +12,7 @@
       "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
       "version" : 2
    },
-   "name" : "Catmandu-Store-Resolver",
+   "name" : "Catmandu-Resolver",
    "no_index" : {
       "directory" : [
          "eg",
@@ -62,7 +62,7 @@
          "web" : "https://github.com/PACKED-vzw/Catmandu-Store-Resolver"
       }
    },
-   "version" : "0.05",
+   "version" : "0.06",
    "x_contributors" : [
       "Pieter De Praetere <pieter.de.praetere@helptux.be>",
       "Pieter De Praetere <pieter@packed.be>"
